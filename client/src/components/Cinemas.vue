@@ -1,6 +1,5 @@
 <template>
   <v-container grid-list-lg>
-    <h1>Cinemas</h1>
     <v-row>
       <v-col v-for="cinema in cinemas" :key="cinema.id">
         <v-card>

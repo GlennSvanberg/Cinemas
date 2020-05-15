@@ -8,13 +8,17 @@
     </v-app-bar>
     <v-content>
       <Cinemas v-if="showCinemas" :id="id" @show-movies="showMoviesComponent" />
-      <Movies v-else :cinemaId="id" />
-
+      <Movies v-if="!showCinemas" :cinemaId="id" />
       <v-container>
-        <v-flex>
+        <v-row>
           <v-spacer></v-spacer>
-          <v-btn v-if="!showCinemas" @click="showCinemasComponent" color="secondary">Visa biografer</v-btn>
-        </v-flex>
+          <v-btn
+            v-if="!showCinemas"
+            @click="showCinemasComponent"
+            class="mr-6"
+            color="secondary"
+          >Tillbaka</v-btn>
+        </v-row>
       </v-container>
     </v-content>
   </v-app>
