@@ -7,7 +7,7 @@
           <v-card-text v-text="cinema.description" class="mt-4"></v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn @click="onMoviesClick(cinema.id)" color="success">Se Filmer</v-btn>
+            <v-btn @click="onMoviesClick(cinema)" color="success">Se Filmer</v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -27,9 +27,9 @@ export default {
         this.cinemas = result.data;
       });
     },
-    onMoviesClick(id) {
-      console.log(id);
-      this.$emit("show-movies", id);
+    onMoviesClick(cinema) {
+      console.log(cinema.id);
+      this.$emit("show-movies", cinema);
     }
   },
   components: {},

@@ -7,7 +7,7 @@
       </div>
     </v-app-bar>
     <v-content>
-      <Cinemas v-if="showCinemas" :id="id" @show-movies="showMoviesComponent" />
+      <Cinemas v-if="showCinemas" :cinema="cinema" @show-movies="showMoviesComponent" />
       <Movies v-if="!showCinemas" :cinemaId="id" />
       <v-container>
         <v-row>
@@ -31,13 +31,14 @@ import Movies from "./components/Movies";
 export default {
   name: "App",
   methods: {
-    showMoviesComponent: function(id) {
-      this.id = id;
+    showMoviesComponent: function(cinema) {
+      this.id = cinema.id;
       this.showCinemas = !this.showCinemas;
-      this.title = "Biografer";
+      this.title = "Filmer på " + cinema.title;
     },
     showCinemasComponent: function() {
       this.showCinemas = !this.showCinemas;
+      this.title = "Biografer";
     }
   },
   components: {
@@ -50,7 +51,8 @@ export default {
     cinemas: [],
     id: 0,
     showCinemas: true,
-    title: "Biografer"
+    title: "Biografer",
+    cinema: null
   })
 };
 </script>

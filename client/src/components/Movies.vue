@@ -1,6 +1,5 @@
 <template>
   <v-container grid-list-lg>
-    <h1>Filmer</h1>
     <v-row>
       <v-col v-for="movie in movies" :key="movie.id">
         <v-card>
